@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaserClean_PDX | Professional Laser Cleaning Services in Portland, Oregon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(0, 149, 255, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 50%, rgba(0, 255, 157, 0.1) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #00d4ff 0%, #00ff9d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .location {
+            font-size: 1.1rem;
+            color: #00ff9d;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #00d4ff 0%, #0095ff 100%);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 149, 255, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 149, 255, 0.5);
+        }
+
+        .laser-demo {
+            background: #f8f9fa;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #1a1a2e;
+        }
+
+        .demo-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .laser-visual {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(to right, #8b7355 0%, #8b7355 48%, #c0c0c0 52%, #c0c0c0 100%);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .laser-beam {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, #00d4ff 20%, #00ff9d 50%, #00d4ff 80%, transparent 100%);
+            transform: translate(-50%, -50%);
+            animation: scan 3s linear infinite;
+            box-shadow: 0 0 20px #00d4ff, 0 0 40px #00ff9d;
+        }
+
+        @keyframes scan {
+            0% { left: 0%; }
+            100% { left: 100%; }
+        }
+
+        .rust-texture {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                #8b4513,
+                #8b4513 10px,
+                #a0522d 10px,
+                #a0522d 20px
+            );
+            opacity: 0.3;
+        }
+
+        .clean-shine {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, #e8e8e8 0%, #ffffff 50%, #e8e8e8 100%);
+            animation: shine 2s ease-in-out infinite;
+        }
+
+        @keyframes shine {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        .demo-labels {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+            color: #666;
+        }
+
+        .services {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #00d4ff;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #1a1a2e;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .benefits {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .benefits-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .benefit-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #00ff9d;
+        }
+
+        .contact {
+            padding: 60px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .gallery {
+            padding: 60px 20px;
+            background: #f8f9fa;
+        }
+
+        .video-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background: white;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+        }
+
+        .video-caption {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: 600;
+            color: #1a1a2e;
+            font-size: 1.1rem;
+        }
+
+        .photo-gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .photo-item {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .photo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .photo-item img:first-child {
+            border: 3px solid #ff6b6b;
+        }
+
+        .photo-item img:nth-child(2) {
+            border: 3px solid #51cf66;
+        }
+
+        .photo-caption {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: 600;
+            color: #1a1a2e;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-info {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            margin: 20px 0;
+            font-size: 1.2rem;
+        }
+
+        .contact-item a {
+            color: #0095ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .laser-visual {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <div class="logo">LaserClean_PDX</div>
+            <p class="tagline">Mobile Laser Cleaning - We Come to You</p>
+            <p class="location">📍 Serving Portland, Oregon & Surrounding Areas</p>
+            <a href="#contact" class="cta-button">Get a Free Quote</a>
+        </div>
+    </header>
+
+    <section class="laser-demo">
+        <h2 class="section-title">See the Power of Laser Cleaning</h2>
+        <div class="demo-container">
+            <div class="laser-visual">
+                <div class="rust-texture"></div>
+                <div class="clean-shine"></div>
+                <div class="laser-beam"></div>
+            </div>
+            <div class="demo-labels">
+                <span>⬅️ Before: Rust & Oxidation</span>
+                <span>After: Clean Metal ➡️</span>
+            </div>
+            <p style="margin-top: 20px; color: #666; font-size: 1.1rem;">
+                Watch our laser technology remove rust, paint, and contaminants without chemicals or abrasives
+            </p>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <h2 class="section-title">Our Work</h2>
+        <p style="text-align: center; font-size: 1.2rem; color: #666; max-width: 800px; margin: 0 auto 40px;">
+            See real results from our marine, aviation, automotive, and residential projects
+        </p>
+        
+        <!-- Video Section -->
+        <div class="video-container">
+            <h3 style="text-align: center; margin-bottom: 30px; font-size: 1.8rem; color: #1a1a2e;">Video Demonstrations</h3>
+            <div class="video-grid">
+                <!-- Replace the src URLs below with your YouTube embed links -->
+                <!-- To get YouTube embed link: Click Share > Embed > Copy the URL from src="..." -->
+                <div class="video-wrapper">
+                    <iframe 
+                        src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1" 
+                        title="Laser Cleaning Demo 1"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                    <p class="video-caption">Marine Hull Cleaning</p>
+                </div>
+                <div class="video-wrapper">
+                    <iframe 
+                        src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" 
+                        title="Laser Cleaning Demo 2"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                    <p class="video-caption">Automotive Rust Removal</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photo Gallery Section -->
+        <div class="photo-gallery-container">
+            <h3 style="text-align: center; margin: 60px 0 30px; font-size: 1.8rem; color: #1a1a2e;">Before & After Gallery</h3>
+            <div class="photo-grid">
+                <!-- Replace the src URLs below with your actual image URLs -->
+                <!-- You can upload images to imgur.com, Google Drive (get shareable link), or your web hosting -->
+                
+                <div class="photo-item">
+                    <img src="https://via.placeholder.com/600x400/8b4513/ffffff?text=BEFORE:+Rusty+Hull" alt="Before - Rusty boat hull">
+                    <img src="https://via.placeholder.com/600x400/c0c0c0/333333?text=AFTER:+Clean+Hull" alt="After - Clean boat hull">
+                    <p class="photo-caption">Marine: Boat Hull Restoration</p>
+                </div>
+
+                <div class="photo-item">
+                    <img src="https://via.placeholder.com/600x400/8b4513/ffffff?text=BEFORE:+Rusty+Frame" alt="Before - Rusty car frame">
+                    <img src="https://via.placeholder.com/600x400/c0c0c0/333333?text=AFTER:+Clean+Frame" alt="After - Clean car frame">
+                    <p class="photo-caption">Automotive: Classic Car Frame</p>
+                </div>
+
+                <div class="photo-item">
+                    <img src="https://via.placeholder.com/600x400/8b4513/ffffff?text=BEFORE:+Painted+Metal" alt="Before - Old paint">
+                    <img src="https://via.placeholder.com/600x400/c0c0c0/333333?text=AFTER:+Bare+Metal" alt="After - Stripped metal">
+                    <p class="photo-caption">Aviation: Component Paint Removal</p>
+                </div>
+
+                <div class="photo-item">
+                    <img src="https://via.placeholder.com/600x400/8b4513/ffffff?text=BEFORE:+Rusty+Gate" alt="Before - Rusty gate">
+                    <img src="https://via.placeholder.com/600x400/c0c0c0/333333?text=AFTER:+Clean+Gate" alt="After - Clean gate">
+                    <p class="photo-caption">Residential: Wrought Iron Gate</p>
+                </div>
+
+                <div class="photo-item">
+                    <img src="https://via.placeholder.com/600x400/8b4513/ffffff?text=BEFORE:+Corroded+Parts" alt="Before - Corroded parts">
+                    <img src="https://via.placeholder.com/600x400/c0c0c0/333333?text=AFTER:+Clean+Parts" alt="After - Clean parts">
+                    <p class="photo-caption">Marine: Engine Component Cleaning</p>
+                </div>
+
+                <div class="photo-item">
+                    <img src="https://via.placeholder.com/600x400/8b4513/ffffff?text=BEFORE:+Old+BBQ" alt="Before - Rusty BBQ">
+                    <img src="https://via.placeholder.com/600x400/c0c0c0/333333?text=AFTER:+Clean+BBQ" alt="After - Clean BBQ">
+                    <p class="photo-caption">Residential: BBQ Grill Restoration</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <h2 class="section-title" style="text-align: center;">Mobile On-Site Services</h2>
+        <p style="text-align: center; font-size: 1.2rem; color: #666; max-width: 800px; margin: 0 auto 40px;">
+            Our fully-equipped mobile units bring professional laser cleaning directly to your location
+        </p>
+        <div class="service-grid">
+            <div class="service-card">
+                <div class="service-icon">⚓</div>
+                <h3>Marine Services</h3>
+                <p>Hull cleaning, rust removal, paint stripping, and surface preparation for boats and yachts. We come to your marina, dock, or dry storage facility.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">✈️</div>
+                <h3>Civil Aviation</h3>
+                <p>Safe, non-abrasive cleaning for aircraft components, landing gear, engine parts, and corrosion removal. On-site service at hangars and airports.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🚗</div>
+                <h3>Automotive</h3>
+                <p>Classic car restoration, rust removal, paint stripping, frame cleaning, and engine component detailing. Mobile service to your garage or shop.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Residential</h3>
+                <p>Fence and gate restoration, outdoor furniture cleaning, BBQ grill refurbishment, and metal fixture renewal at your home.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Paint & Coating Removal</h3>
+                <p>Efficiently strip old paint, powder coating, and protective layers from any metal surface without harsh chemicals or media blasting.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Rust & Corrosion Removal</h3>
+                <p>Eliminate rust, oxidation, and corrosion from tools, equipment, and metal structures. Perfect for marine and outdoor applications.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <div class="benefits-container">
+            <h2 class="section-title" style="text-align: center; color: white;">Why Choose Laser Cleaning?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">🚐</div>
+                    <h4>Mobile Service</h4>
+                    <p>We bring our equipment to you. No need to transport large items or disassemble equipment.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🌱</div>
+                    <h4>Eco-Friendly</h4>
+                    <p>No chemicals, no waste, no environmental damage. Just clean, precise laser energy.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">⚡</div>
+                    <h4>Fast & Efficient</h4>
+                    <p>Clean large surfaces in a fraction of the time compared to traditional methods.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <h4>Non-Abrasive</h4>
+                    <p>Removes contaminants without damaging the underlying surface or substrate.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <h4>Cost-Effective</h4>
+                    <p>Reduce labor costs and eliminate expensive chemical disposal fees.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="section-title">Schedule Your On-Site Service Today</h2>
+        <p style="font-size: 1.2rem; color: #666; margin-bottom: 30px;">
+            We bring professional laser cleaning directly to your location - marina, hangar, garage, or home. 
+            Serving Portland and the surrounding areas with fully-equipped mobile units.
+        </p>
+        <div class="contact-info">
+            <div class="contact-item">
+                📞 <a href="tel:+15037038987">(503) 703-8987</a>
+            </div>
+            <div class="contact-item">
+                ✉️ <a href="/cdn-cgi/l/email-protection#185f7d6c7b747d79765854796b7d6a5b747d7976687c60367b7775"><span class="__cf_email__" data-cfemail="85c2e0f1e6e9e0e4ebc5c9e4f6e0f7c6e9e0e4ebf5e1fdabe6eae8">[email&#160;protected]</span></a>
+            </div>
+            <div class="contact-item">
+                🚐 Mobile Service - We Come to You!
+            </div>
+            <div class="contact-item">
+                📍 Portland Metro • Marine Facilities • Airports • Residential
+            </div>
+        </div>
+        <a href="/cdn-cgi/l/email-protection#adeac8d9cec1c8ccc3ede1ccdec8dfeec1c8ccc3ddc9d583cec2c0" class="cta-button" style="margin-top: 30px;">Request a Free Quote</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 LaserClean_PDX. All rights reserved.</p>
+        <p style="margin-top: 10px; opacity: 0.8;">Mobile Laser Cleani
